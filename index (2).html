@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Axel Shop | Vêtements homme, femme, enfant à Abidjan</title>
+<meta name="description" content="Axel Shop, boutique de vêtements à Abidjan pour hommes, femmes et enfants. Ouvert 7j/7 de 9h à 19h. Commandez sur WhatsApp ou visitez-nous.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👕%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap">
+<!-- DONNÉES SEO : à compléter avec l'adresse exacte dès qu'elle est connue -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ClothingStore","name":"Axel Shop","description":"Vêtements pour hommes, femmes et enfants à Abidjan.","telephone":"+2250501483184","email":"yoshidakiyo9@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Abidjan","addressCountry":"CI"},"openingHours":"Mo-Su 09:00-19:00"}
+</script>
+<style>
+/* ===== PERSONNALISATION : couleurs ===== */
+:root{
+  --bg:#fff; --fg:#2b1b13; --muted:#6f5a4d; --brown:#4a2c1d; --accent:#a6754f;
+  --card:#f8f3ef; --line:#e6d8cc; --btn:#4a2c1d; --btn-fg:#fff; --wa:#1f9d55;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.65 "Sora",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+section{padding:4.5rem 0}
+h1,h2,h3{line-height:1.15;margin:0 0 .75rem;font-weight:800;letter-spacing:-.02em;color:var(--brown)}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem)}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0 0 1rem;max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.7rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--btn);background:var(--btn);color:var(--btn-fg);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.alt{background:transparent;color:var(--brown);border-color:var(--accent)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+/* En-tête */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:1rem}
+.logo{font-weight:800;font-size:1.25rem;text-decoration:none;color:var(--brown);letter-spacing:-.03em}
+nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:.95rem;color:var(--muted)}
+nav a:hover{color:var(--brown)}
+.burger{display:none;min-width:48px;min-height:48px;background:none;border:1px solid var(--line);border-radius:12px;color:var(--brown);font-size:1.3rem}
+@media(max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:.5rem 1.25rem 1rem}
+  nav a{display:block;padding:.8rem 0;font-size:1.05rem}
+  .bar>.btn{display:none}
+}
+/* Accueil : une seule animation orchestrée, l'étiquette qui se balance */
+.hero{position:relative;overflow:hidden;padding:4rem 0 5rem;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px}
+.hero::after{content:"";position:absolute;inset:auto -20% -40% auto;width:70vmax;height:70vmax;max-width:760px;max-height:760px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 38%,transparent),transparent 65%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;gap:2.5rem;grid-template-columns:1.2fr .8fr;align-items:center}
+.hero h1{font-size:clamp(2.1rem,7vw,3.8rem)}
+.hero p.lead{font-size:1.1rem;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}
+.tagwrap{display:flex;justify-content:center;transform-origin:50% 0;animation:swing 2.6s ease-out 1 both}
+.tag{position:relative;width:min(280px,80%);padding:3.2rem 1.6rem 1.8rem;border-radius:26px;background:var(--card);border:2px solid var(--accent);box-shadow:0 0 38px color-mix(in srgb,var(--accent) 45%,transparent)}
+.tag::before{content:"";position:absolute;top:16px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;border:3px solid var(--accent);background:var(--bg)}
+.tag b{display:block;font-size:1.5rem;color:var(--brown);margin-bottom:.3rem}
+.tag span{display:block;color:var(--muted);font-size:.95rem}
+.tag hr{border:0;border-top:2px dashed var(--line);margin:1rem 0}
+@keyframes swing{0%{transform:rotate(-14deg)}25%{transform:rotate(9deg)}50%{transform:rotate(-5deg)}75%{transform:rotate(2deg)}100%{transform:rotate(0)}}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.tagwrap{order:-1}}
+/* Grilles */
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:1.6rem}
+.card.big{border-radius:30px 30px 8px 30px;min-height:190px}
+.ph{display:grid;place-items:center;text-align:center;min-height:170px;border-radius:18px;border:2px dashed var(--accent);color:var(--muted);font-size:.9rem;padding:1rem;background:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--accent) 8%,transparent) 12px 24px)}
+.gallery{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.gallery .ph{aspect-ratio:1;min-height:0}
+.alt-bg{background:#fff}
+.alt-bg .card{background:var(--card)}
+/* FAQ */
+details{border:1px solid var(--line);border-radius:16px;padding:1rem 1.2rem;margin-bottom:.7rem;background:var(--card)}
+summary{cursor:pointer;font-weight:600;color:var(--brown);min-height:28px}
+details p{margin:.7rem 0 0;color:var(--muted)}
+/* Contact */
+.contact{display:grid;gap:1.5rem;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%}
+td{padding:.35rem 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;font-weight:600}
+.map{min-height:230px}
+footer{border-top:1px solid var(--line);padding:2.5rem 0 3rem;font-size:.92rem;color:var(--muted)}
+footer .row{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between}
+.legal{margin-top:1.6rem;display:grid;gap:.7rem}
+.todo{background:color-mix(in srgb,var(--accent) 22%,transparent);padding:0 .35em;border-radius:6px}
+/* Catalogue et gestion */
+button.btn{font:inherit;cursor:pointer}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.filters button{cursor:pointer;font:inherit;min-height:44px;padding:.4rem 1.1rem;border-radius:999px;border:2px solid var(--accent);background:transparent;color:var(--brown)}
+.filters button[aria-pressed="true"]{background:var(--btn);color:var(--btn-fg);border-color:var(--btn)}
+.prod{display:flex;flex-direction:column}
+.prod img,.prod .ph{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;margin-bottom:.8rem}
+.prod .btn{margin-top:auto}.prod .adm{margin-top:.5rem}
+.price{font-weight:800;color:var(--brown);font-size:1.15rem;margin:0 0 .8rem}
+.gi{margin:0;position:relative;aspect-ratio:1}.gi img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+.x{position:absolute;top:8px;right:8px;min-width:44px;min-height:44px;border-radius:999px;border:0;background:var(--btn);color:var(--btn-fg);cursor:pointer;font:inherit}
+#adm{border:2px dashed var(--accent);border-radius:22px;padding:1.2rem;margin-bottom:1.5rem;background:var(--card)}
+#adm label{display:block;font-weight:600;margin:.6rem 0 .2rem}
+#adm input,#adm select{width:100%;min-height:48px;padding:.5rem .8rem;border-radius:12px;border:1px solid var(--line);font:inherit;background:#fff;color:var(--fg)}
+#msg{margin:.8rem 0 0;color:var(--brown);font-weight:600}
+/* Bouton WhatsApp flottant (mobile) */
+.float{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+@media(min-width:761px){.float{display:none}}
+@media(prefers-reduced-motion:reduce){.tagwrap{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#accueil" aria-label="Axel Shop, retour à l’accueil">Axel Shop</a>
+    <nav id="menu" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#boutique">La boutique</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#articles">Articles et prix</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn wa" href="https://wa.me/2250501483184" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <div class="wrap">
+    <div>
+      <h1>Axel Shop, la mode de toute la famille à Abidjan</h1>
+      <p class="lead">Vêtements pour hommes, femmes et enfants. Passez en boutique ou commandez directement sur WhatsApp.</p>
+      <div class="cta">
+        <a class="btn wa" href="https://wa.me/2250501483184?text=Bonjour%20Axel%20Shop%2C%20je%20souhaite%20commander" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+        <a class="btn alt" href="tel:+2250501483184">Appeler maintenant</a>
+        <a class="btn alt" href="#contact">Voir l’itinéraire</a>
+      </div>
+    </div>
+    <div class="tagwrap" aria-hidden="true">
+      <div class="tag"><b>Axel Shop</b><span>Hommes, femmes, enfants</span><hr><span>Ouvert 7j/7</span><span>9h00 à 19h00</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="boutique">
+  <div class="wrap">
+    <h2>Une boutique pensée pour toute la famille</h2>
+    <p>Axel Shop propose des vêtements tendance et confortables pour les hommes, les femmes et les enfants. Chez nous, chacun trouve sa tenue au même endroit, avec des conseils simples et un accueil attentif.</p>
+    <p>Vous préférez gagner du temps ? Écrivez-nous sur WhatsApp : nous répondons à vos questions et préparons votre commande.</p>
+  </div>
+</section>
+
+<section class="alt-bg" id="collections">
+  <div class="wrap">
+    <h2>Nos collections</h2>
+    <div class="grid">
+      <article class="card big"><h3>Hommes</h3><p>Tenues du quotidien et pièces pour sortir. <span class="todo">Produits et tarifs à compléter</span></p></article>
+      <article class="card big"><h3>Femmes</h3><p>Des looks actuels pour toutes les occasions. <span class="todo">Produits et tarifs à compléter</span></p></article>
+      <article class="card big"><h3>Enfants</h3><p>Des vêtements confortables et résistants. <span class="todo">Produits et tarifs à compléter</span></p></article>
+    </div>
+  </div>
+</section>
+
+<section id="articles">
+  <div class="wrap">
+    <h2>Nos articles et prix</h2>
+    <div id="adm" hidden>
+      <h3>Gérer le catalogue</h3>
+      <label for="pn">Nom de l’article</label><input id="pn" type="text" maxlength="80">
+      <label for="pc">Catégorie</label><select id="pc"><option>Hommes</option><option>Femmes</option><option>Enfants</option></select>
+      <label for="pp">Prix en FCFA</label><input id="pp" type="number" min="0" inputmode="numeric">
+      <label for="pf">Photo de l’article</label><input id="pf" type="file" accept="image/*">
+      <div class="cta"><button class="btn" id="addP" type="button">Ajouter l’article</button></div>
+      <h3 style="margin-top:1.5rem">Photo de la galerie</h3>
+      <label for="gf">Choisir une photo</label><input id="gf" type="file" accept="image/*">
+      <div class="cta"><button class="btn alt" id="addG" type="button">Ajouter à la galerie</button></div>
+      <p id="msg" role="status"></p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="catalog"></div>
+  </div>
+</section>
+
+<section id="avantages">
+  <div class="wrap">
+    <h2>Pourquoi choisir Axel Shop</h2>
+    <div class="grid">
+      <div class="card"><h3>Toute la famille au même endroit</h3><p>Hommes, femmes et enfants dans une seule boutique.</p></div>
+      <div class="card"><h3>Commande rapide par WhatsApp</h3><p>Envoyez un message, nous vous répondons.</p></div>
+      <div class="card"><h3>Ouvert tous les jours</h3><p>De 9h00 à 19h00, 7 jours sur 7.</p></div>
+      <div class="card"><h3>Des conseils personnalisés</h3><p>Taille, style, occasion : nous vous guidons.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg" id="galerie">
+  <div class="wrap">
+    <h2>La boutique en images</h2>
+    <div class="gallery" id="gal">
+      <!-- Remplacez chaque bloc .ph par <img src="photo.jpg" alt="..."> -->
+      <div class="ph" role="img" aria-label="Vitrine de la boutique Axel Shop à Abidjan">Photo de la vitrine à ajouter</div>
+      <div class="ph" role="img" aria-label="Rayon de vêtements pour hommes chez Axel Shop">Photo rayon hommes à ajouter</div>
+      <div class="ph" role="img" aria-label="Rayon de vêtements pour femmes chez Axel Shop">Photo rayon femmes à ajouter</div>
+      <div class="ph" role="img" aria-label="Vêtements pour enfants chez Axel Shop">Photo rayon enfants à ajouter</div>
+      <div class="ph" role="img" aria-label="Intérieur de la boutique Axel Shop">Photo intérieur à ajouter</div>
+      <div class="ph" role="img" aria-label="Nouveautés mode chez Axel Shop">Photo nouveautés à ajouter</div>
+    </div>
+  </div>
+</section>
+
+<section id="avis">
+  <div class="wrap">
+    <h2>Ce que disent nos clients</h2>
+    <div class="grid">
+      <!-- Ajoutez ici de vrais avis, avec l’accord des clients -->
+      <div class="ph">Avis client à ajouter</div>
+      <div class="ph">Avis client à ajouter</div>
+      <div class="ph">Avis client à ajouter</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg" id="faq">
+  <div class="wrap">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Quels sont vos horaires ?</summary><p>Nous sommes ouverts 7j/7, de 9h00 à 19h00.</p></details>
+    <details><summary>Comment commander ?</summary><p>Écrivez-nous sur WhatsApp au 05 01 48 31 84, ou passez directement en boutique.</p></details>
+    <details><summary>Vendez-vous pour les enfants ?</summary><p>Oui, nous habillons les hommes, les femmes et les enfants.</p></details>
+    <details><summary>Faites-vous la livraison à Abidjan ?</summary><p><span class="todo">Réponse à confirmer avec le commerçant</span></p></details>
+    <details><summary>Quels moyens de paiement acceptez-vous ?</summary><p><span class="todo">Réponse à confirmer avec le commerçant</span></p></details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Nous contacter</h2>
+    <div class="contact">
+      <div class="card">
+        <h3>Coordonnées</h3>
+        <p>Téléphone et WhatsApp : <a href="tel:+2250501483184">05 01 48 31 84</a><br>
+        E-mail : <a href="mailto:yoshidakiyo9@gmail.com">yoshidakiyo9@gmail.com</a><br>
+        Adresse : <span class="todo">à compléter (quartier, rue, repère)</span>, Abidjan</p>
+        <div class="cta"><a class="btn wa" href="https://wa.me/2250501483184" target="_blank" rel="noopener">Nous écrire sur WhatsApp</a></div>
+        <h3 style="margin-top:1.5rem">Horaires d’ouverture</h3>
+        <table><tr><td>Lundi au dimanche</td><td>9h00 à 19h00</td></tr></table>
+      </div>
+      <div class="card">
+        <h3>Adresse et carte</h3>
+        <!-- Collez ici le code « Intégrer une carte » de Google Maps (iframe) -->
+        <div class="ph map" role="img" aria-label="Carte Google Maps de la boutique Axel Shop à Abidjan">Carte Google Maps à intégrer</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><strong style="color:var(--brown)">Axel Shop</strong><br>Vêtements homme, femme, enfant à Abidjan</div>
+      <div>Tél. : <a href="tel:+2250501483184">05 01 48 31 84</a><br><a href="https://wa.me/2250501483184" target="_blank" rel="noopener">WhatsApp</a><br><a href="mailto:yoshidakiyo9@gmail.com">E-mail</a></div>
+    </div>
+    <div class="legal">
+      <details id="mentions"><summary>Mentions légales</summary><p><span class="todo">À compléter</span> : raison sociale, forme juridique, numéro RCCM, adresse du siège, responsable de la publication, hébergeur du site.</p></details>
+      <details id="confidentialite"><summary>Politique de confidentialité</summary><p><span class="todo">À compléter</span> : données collectées (messages WhatsApp, e-mails), finalité, durée de conservation, droits des clients et contact.</p></details>
+    </div>
+    <p style="margin-top:1.4rem">© 2026 Axel Shop. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<a class="btn wa float" href="https://wa.me/2250501483184" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+})();
+</script>
+<script type="application/json" id="data">{"products":[],"gallery":[]}</script>
+<script>
+(function(){
+  var DATA=JSON.parse(document.getElementById('data').textContent);
+  var WA='2250501483184',cat='Tous',canEdit=false,art=null,assets=null;
+  var $=function(s){return document.querySelector(s)};
+  var GAL0=$('#gal').innerHTML;
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML.replace(/"/g,'&quot;')}
+  function fmt(p){return p?Number(p).toLocaleString('fr-FR')+' FCFA':'Prix sur demande'}
+  function note(t){$('#msg').textContent=t}
+  function renderCat(){
+    var box=$('#catalog'),list=DATA.products.filter(function(p){return cat==='Tous'||p.cat===cat});
+    if(!list.length){box.innerHTML='<p>'+(DATA.products.length?'Aucun article dans cette catégorie.':'Les articles et les prix arrivent bientôt. Écrivez-nous sur WhatsApp pour connaître la disponibilité.')+'</p>';return}
+    box.innerHTML=list.map(function(p){var i=DATA.products.indexOf(p);
+      return '<article class="card prod">'+(p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.name+' chez Axel Shop à Abidjan')+'" loading="lazy">':'<div class="ph">Photo à venir</div>')
+      +'<h3>'+esc(p.name)+'</h3><p class="price">'+fmt(p.price)+'</p>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent('Bonjour Axel Shop, je suis intéressé(e) par : '+p.name)+'">Commander</a>'
+      +(canEdit?'<button class="btn alt adm" type="button" data-del="p'+i+'">Supprimer</button>':'')+'</article>'}).join('')
+  }
+  function renderGal(){
+    if(!DATA.gallery.length)return;
+    $('#gal').innerHTML=DATA.gallery.map(function(g,i){return '<figure class="gi"><img src="'+esc(g.url)+'" alt="Photo de la boutique Axel Shop à Abidjan" loading="lazy">'+(canEdit?'<button class="x" type="button" data-del="g'+i+'" aria-label="Supprimer cette photo">×</button>':'')+'</figure>'}).join('')
+  }
+  var F=$('#filters');
+  ['Tous','Hommes','Femmes','Enfants'].forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',c===cat);b.onclick=function(){cat=c;F.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});renderCat()};F.appendChild(b)});
+  function shrink(file){return new Promise(function(res,rej){var im=new Image(),u=URL.createObjectURL(file);im.onload=function(){var s=Math.min(1,1000/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=Math.round(im.width*s);cv.height=Math.round(im.height*s);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);URL.revokeObjectURL(u);cv.toBlob(function(b){b?res(b):rej(new Error('image illisible'))},'image/jpeg',.82)};im.onerror=function(){rej(new Error('image illisible'))};im.src=u})}
+  async function up(file){var r=await assets.upload(await shrink(file));return r.url}
+  async function save(){
+    var c=document.documentElement.cloneNode(true);
+    c.querySelector('#data').textContent=JSON.stringify(DATA).replace(/</g,'\\u003c');
+    c.querySelector('#catalog').innerHTML='';c.querySelector('#filters').innerHTML='';
+    c.querySelector('#gal').innerHTML=GAL0;c.querySelector('#adm').setAttribute('hidden','');
+    c.querySelector('#menu').classList.remove('open');
+    try{await art.publish('<!DOCTYPE html>\n'+c.outerHTML)}catch(e){if(!(e&&e.code==='conflict'))note('Échec de l’enregistrement, réessayez.')}
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-del]');if(!t||!canEdit)return;
+    if(t.dataset.arm!=='1'){t.dataset.arm='1';t.textContent='Confirmer';return}
+    var k=t.getAttribute('data-del');(k[0]==='p'?DATA.products:DATA.gallery).splice(+k.slice(1),1);save()
+  });
+  $('#addP').addEventListener('click',async function(){
+    var n=$('#pn').value.trim(),f=$('#pf').files[0],b=this;
+    if(!n){note('Indiquez le nom de l’article.');return}
+    note('Enregistrement…');b.disabled=true;
+    try{var img=f?await up(f):'';DATA.products.push({name:n,cat:$('#pc').value,price:+$('#pp').value||0,img:img});await save()}catch(x){note('Échec : '+(x&&x.message||'réessayez'))}
+    b.disabled=false
+  });
+  $('#addG').addEventListener('click',async function(){
+    var f=$('#gf').files[0],b=this;
+    if(!f){note('Choisissez une photo.');return}
+    note('Enregistrement…');b.disabled=true;
+    try{DATA.gallery.push({url:await up(f)});await save()}catch(x){note('Échec : '+(x&&x.message||'réessayez'))}
+    b.disabled=false
+  });
+  renderCat();renderGal();
+  (async function(){
+    try{
+      if(!window.claude)return;
+      var u=await claude.use('user');if(!(u&&u.canEdit()))return;
+      art=await claude.use('artifact');assets=await claude.use('assets');
+      if(!art||!assets)return;
+      canEdit=true;$('#adm').hidden=false;renderCat();renderGal()
+    }catch(e){}
+  })();
+})();
+</script>
+</body>
+</html>
